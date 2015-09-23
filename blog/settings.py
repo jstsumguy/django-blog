@@ -53,7 +53,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-
+        'HOST': 'ec2-54-204-30-115.compute-1.amazonaws.com',
+        'NAME': 'd33c2l9c3f6u4p',
+        'USER': 'xldatckdhpvsah',
+        'PORT': '5432',
+        'PASSWORD': 'geUYIjqaXijYXfNpsvU2VHeqwr',
     }
 }
 

@@ -26,6 +26,8 @@ import os
 
 def home(request):
 	posts = []
+	admin = True if request.user.is_superuser else False
+	print admin
 	for post in Post.objects.all().order_by('-created')[:50]:
 		obj = {}
 		obj['id'] = post.id
@@ -34,7 +36,7 @@ def home(request):
 		obj['created'] = post.created
 		obj['tags'] = [tag for tag in post.tags.all()]
 		posts.append(post)
-	return render(request, 'main/index.html', {'rp': '.', 'posts': posts })
+	return render(request, 'main/index.html', {'rp': '.', 'posts': posts, 'admin': admin })
 
 def tag(request, tag_id):
 	tag = Tag.objects.get(id=tag_id)

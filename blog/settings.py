@@ -1,16 +1,10 @@
-"""
-Django settings for blog project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+TEMPLATE_DIRS = (
+    BASE_DIR + '/templates/',
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,6 +30,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'posts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,8 +53,13 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'ec2-54-204-30-115.compute-1.amazonaws.com',
+        'NAME': 'd33c2l9c3f6u4p',
+        'USER': 'xldatckdhpvsah',
+        'PORT': '5432',
+        'PASSWORD': 'geUYIjqaXijYXfNpsvU2VHeqwr',
+
     }
 }
 
@@ -80,4 +80,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/blog/static',
+)
 STATIC_URL = '/static/'

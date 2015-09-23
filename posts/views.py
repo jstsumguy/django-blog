@@ -26,7 +26,7 @@ import os
 
 def home(request):
 	posts = []
-	for post in Post.objects.all()[:50]:
+	for post in Post.objects.all().order_by('-created')[:50]:
 		obj = {}
 		obj['id'] = post.id
 		obj['title'] = post.title
@@ -35,3 +35,35 @@ def home(request):
 		obj['tags'] = [tag for tag in post.tags.all()]
 		posts.append(post)
 	return render(request, 'main/index.html', {'rp': '.', 'posts': posts })
+
+def tag(request, tag_id):
+	tag = Tag.objects.get(id=tag_id)
+	posts = [post for post in Post.objects.filter(tags=tag)]
+	print 'posts', posts
+	return render(request, 'main/tag.html', {'rp': '../..', 'posts': posts, 'tag': tag })
+
+@csrf_exempt
+def edit_post(request):
+	data = json.loads(request.body)
+	try:
+		post = Post.objects.get(id=data['id'])
+		post.content = data['content']
+		post.updated = datetime.datetime.now()
+		post.save()
+		return HttpResponse("success")
+	except Exception as ex:
+		print str(ex)
+		return HttpResponse("fail")
+
+
+
+
+
+
+
+
+
+
+
+
+

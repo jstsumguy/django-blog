@@ -10,11 +10,33 @@ div.posts {
 	padding-left: 30px;
 	padding-right: 30px;
 }
+div.post:first-child {
+	margin-top: 30px;
+}
 div.post {
-	margin-top: 45px;
+	margin-top: 65px;
 }
 span.post-date {
 	font-size: 1em;
+}
+div.posts h1.topic {
+	text-align: left;
+	font-weight: lighter;
+	margin-bottom: 5px;
+	font-size: 38px;
+	color: #54e5da;
+}
+span.edit {
+	cursor: pointer;
+}
+span.edit:hover {
+	color: #54e5da;
+}
+textarea#edit-content {
+	width: 550px;
+	height: 500px;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
 }
 
 /* Tags */

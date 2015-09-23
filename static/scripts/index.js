@@ -25,7 +25,8 @@ $(document).ready(function() {
 			data: JSON.stringify(message),
 			success: function(response) {
 				console.log(response);
-
+				if(response.indexOf('success') > -1) 
+					location.reload();
 			}
 		})
 	})

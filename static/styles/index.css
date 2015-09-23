@@ -1,0 +1,69 @@
+body {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 
+}
+div.posts {
+	padding-top: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+span.post-date {
+	font-size: 1em;
+}
+
+/* Fonts */
+h1 {
+	font-family: 'Open Sans';
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 60px;
+	text-align: center;
+}
+h2, h3 {
+	font-family: 'Open Sans';
+	text-align: left;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+article {
+	text-align: left;
+	font-family: 'Open Sans';
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 42px;
+}
+.light {
+	text-align: center;
+	font-family: 'Open Sans';
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 42px;
+	color: #D3D3D3;
+}
+blockquote {
+	font-family: 'Open Sans';
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+pre {
+	font-family: 'Open Sans';
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}

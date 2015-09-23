@@ -10,6 +10,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
 	user = models.ForeignKey(User)
+	img = models.CharField(max_length=500, null=True, blank=True)
 	title = models.CharField(max_length=500)
 	content = models.TextField()
 	tags = models.ManyToManyField(Tag)

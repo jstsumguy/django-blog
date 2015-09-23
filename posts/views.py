@@ -32,6 +32,6 @@ def home(request):
 		obj['title'] = post.title
 		obj['content'] = post.content
 		obj['created'] = post.created
-		obj['tags'] = [tag.title for tag in post.tags.all()]
+		obj['tags'] = [tag for tag in post.tags.all()]
 		posts.append(post)
 	return render(request, 'main/index.html', {'rp': '.', 'posts': posts })

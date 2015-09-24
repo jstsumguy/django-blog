@@ -14,11 +14,11 @@ TEMPLATE_DIRS = (
 SECRET_KEY = '=x)n=czz-kr-*8h++2qeaw$t5^mt3kl$6wy)^0-hn)xqz2y72v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

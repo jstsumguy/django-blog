@@ -1,0 +1,20 @@
+form#create-comment-form {
+	margin-bottom: 20px;
+	width: 900px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+div.comment {
+	padding: 10px;
+	padding-left: 30px;
+	margin-top: 10px;
+	font-size: .9em;
+	font-weight: 300;
+}
+div.comment:last-child {
+	margin-bottom: 30px;
+}
+div.posts {
+	margin-bottom: 20px !important;
+	padding-bottom: 0px !important;
+}

@@ -44,6 +44,13 @@ def tag(request, tag_id):
 	print 'posts', posts
 	return render(request, 'main/tag.html', {'rp': '../..', 'posts': posts, 'tag': tag })
 
+def post(request, post_id):
+	post = Post.objects.get(id=post_id)
+	comments = [comment for comment in Comment.objects.filter(post=post)]
+	logged_in = True if request.user.is_authenticated() else False
+	admin = True if request.user.is_superuser else False
+	return render(request, 'main/post.html', {'rp': '../..', 'post': post, 'comments': comments, 'admin': admin, 'logged_in': logged_in })	
+
 @csrf_exempt
 def edit_post(request):
 	data = json.loads(request.body)
@@ -56,6 +63,39 @@ def edit_post(request):
 	except Exception as ex:
 		print str(ex)
 		return HttpResponse("fail")
+
+@csrf_exempt
+def create_comment(request):
+	data = json.loads(request.body)
+	post = Post.objects.get(id=data['post_id'])
+	user = User.objects.get(id=data['user_id'])
+
+	try:
+		comment = Comment(content=data['content'], post=post, user=user, created=datetime.datetime.now())
+		comment.save()
+		return HttpResponse("success")
+	except Exception as ex:
+		print str(ex)
+		return HttpResponse("fail")
+
+@csrf_exempt
+def signup(request):
+	if request.method == 'POST':
+		status = 'fail'
+		username = request.POST.get('username', '')
+		password = request.POST.get('password', '')
+		email = request.POST.get('email', '')
+		try:
+			user = User.objects.create_user(username, email, password)
+			user.save()
+			status = 'success'
+		except Exception as ex:
+			print str(ex)
+		return redirect('../accounts/login/')
+	else:
+		return render(request, 'signup.html')
+
+
 
 
 

@@ -19,3 +19,12 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Comment(models.Model):
+	post = models.ForeignKey(Post)
+	user = models.ForeignKey(User)
+	content = models.TextField()
+	created = models.DateTimeField()
+
+	def __str__(self):
+		return self.content

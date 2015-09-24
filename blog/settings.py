@@ -53,6 +53,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': 'ec2-54-204-30-115.compute-1.amazonaws.com',
         'NAME': 'd33c2l9c3f6u4p',
         'USER': 'xldatckdhpvsah',

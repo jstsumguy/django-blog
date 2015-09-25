@@ -36,7 +36,7 @@ def home(request):
 		obj['created'] = post.created
 		obj['tags'] = [tag for tag in post.tags.all()]
 		posts.append(post)
-	return render(request, 'main/index.html', {'posts': posts, 'admin': admin })
+	return render(request, 'main/index.html', {'rp': '.', 'posts': posts, 'admin': admin })
 
 def tag(request, tag_id):
 	tag = Tag.objects.get(id=tag_id)
